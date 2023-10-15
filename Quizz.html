@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+    <style>
+        .right-answer {
+            color: green;
+        }
+
+        .wrong-answer {
+            color: red;
+        }
+    </style>
+    <script>
+        function getResult() {
+            var score = 0;
+            var resultDiv = document.getElementById("result");
+            var questions = document.getElementsByClassName("question");
+            var unanswered = false;
+
+            for (var i = 0; i < questions.length; i++) {
+                var ele = questions[i].querySelector('input[type="radio"]:checked');
+                if (ele) {
+                    if (ele.value === "correct") {
+                        score++;
+                        ele.parentElement.classList.add('right-answer');
+                    } else {
+                        ele.parentElement.classList.add('wrong-answer');
+                    }
+                } else {
+                    unanswered = true;
+                }
+            }
+
+            if (unanswered) {
+                resultDiv.innerHTML = "Please attempt all questions.";
+            } else {
+                resultDiv.innerHTML = "You scored " + score + " out of 10.";
+            }
+        }
+    </script>
+</head>
+<body>
+   <b><center><h1>Welcome to the Quiz</h1></center></b>
+   <b><center><h2>All questions carry equal marks</h2></center></b>
+
+    <div class="question">
+        <b><p>1. What is the capital of Telangana?</p></b>
+        <input type="radio" name="capital1" value="correct">Hyderabad<br>
+        <input type="radio" name="capital1" value="incorrect"> Warangal<br>
+        <input type="radio" name="capital1" value="incorrect">Khammam<br>
+        <input type="radio" name="capital1" value="incorrect">karimnagar<br><br>
+    </div>
+
+    <div class="question">
+        <b><p>2.How many cricket World cups does India have?</p></b>
+        <input type="radio" name="cricket1" value="correct">Two<br>
+        <input type="radio" name="cricket1" value="incorrect">one<br>
+        <input type="radio" name="cricket1" value="incorrect">three<br>
+        <input type="radio" name="cricket1" value="incorrect">Zero<br><br>
+    </div>
+    
+    <div class="question">
+        <b><p>3.India lies in which continent?</p></b>
+        <input type="radio" name="continent1" value="correct">Asia<br>
+        <input type="radio" name="continent1" value="incorrect">Europe<br>
+        <input type="radio" name="continent1" value="incorrect">Australia<br>
+        <input type="radio" name="continent1" value="incorrect"><br>North America<br>
+    </div>
+
+    <div class="question">
+        <b><p>4. Smallest state of India ?</p></b>
+        <input type="radio" name="state1" value="incorrect">Delhi<br>
+        <input type="radio" name="state1" value="incorrect">Rajasthan<br>
+        <input type="radio" name="state1" value="incorrect">Mumbai<br>
+        <input type="radio" name="state1" value="correct">Goa<br><br>
+    </div>
+
+    <div class="question">
+        <b><p>5. What is the PH of human blood?</p></b>
+        <input type="radio" name="chemistry1" value="incorrect"> 6.5<br>
+        <input type="radio" name="chemistry1" value="incorrect"> 7<br>
+        <input type="radio" name="chemistry1" value="incorrect"> 8.2<br>
+        <input type="radio" name="chemistry1" value="correct"> 7.4<br><br>
+    </div>
+
+    <div class="question">
+        <b><p>6. Who wrote the "Panchatantra"?</p></b>
+        <input type="radio" name="literature1" value="correct"> Vishnu sharma<br>
+        <input type="radio" name="literature1" value="incorrect"> Chanakya<br>
+        <input type="radio" name="literature1" value="incorrect"> kalidasa<br>
+        <input type="radio" name="literature1" value="incorrect"> Jane Austen<br><br>
+    </div>
+
+    <div class="question">
+        <b><p>7. Fungi are plants that lack?</p></b>
+        <input type="radio" name="biology1" value="correct"> chlorophyll<br>
+        <input type="radio" name="biology1" value="incorrect"> carbon dioxide<br>
+        <input type="radio" name="biology1" value="incorrect"> oxygen<br>
+        <input type="radio" name="biology1" value="incorrect"> none of these<br><br>
+    </div>
+
+    <div class="question">
+        <b><p>8. Who was the first President of the India?</p></b>
+        <input type="radio" name="history1" value="correct"> Rajendra Prasad<br>
+        <input type="radio" name="history1" value="incorrect"> venkaya naidu<br>
+        <input type="radio" name="history1" value="incorrect"> jawaharlal nehru<br>
+        <input type="radio" name="history1" value="incorrect"> Ram Nathkovind <br><br>
+    </div>
+
+    <div class="question">
+        <b><p>9. Bleaching powder is a compound of?</p></b>
+        <input type="radio" name="chemistry2" value="incorrect"> sodium<br>
+        <input type="radio" name="chemistry2" value="correct"> calcium<br>
+        <input type="radio" name="chemistry2" value="incorrect"> Magnesium<br>
+        <input type="radio" name="chemistry2" value="incorrect"> sulphur<br><br>
+    </div>
+
+    <div class="question">
+        <b><p>10. Who is the author of book 'Shadow lines'?</p></b>
+        <input type="radio" name="literature2" value="incorrect"> vikram seth<br>
+        <input type="radio" name="literature2" value="correct"> Amitav Gosh<br>
+        <input type="radio" name="literature2" value="incorrect"> F. Scott Fitzgerald<br>
+        <input type="radio" name="literature2" value="incorrect"> Mark Twain<br><br>
+    </div>
+<input type="button"value="Submit" onclick="getResult()"> 
+<input type="button" value="Cancel">
+<div id="result"></div>
+</body>
+</html>
